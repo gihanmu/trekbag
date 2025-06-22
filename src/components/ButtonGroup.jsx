@@ -3,15 +3,15 @@ import Button from "./Button";
 export default function ButtonGroup({
     onHandleRemoveAllItems,
     onHandleResetToInitial,
-    onHandleMarkAllAsComplete,
-    onHandleMarkAllAsIncomplete,
+    handleMarkAllAsPacked,
+    handleMarkAllAsUnpacked,
 }) {
 
     const secondaryButtons = [
         { text: "Remove All Items", action: onHandleRemoveAllItems },
         { text: "Reset to Initial", action: onHandleResetToInitial },
-        { text: "Mark All as Complete", action: onHandleMarkAllAsComplete },
-        { text: "Mark All as Incomplete", action: onHandleMarkAllAsIncomplete },
+        { text: "Mark All as Complete", action: handleMarkAllAsPacked },
+        { text: "Mark All as Incomplete", action: handleMarkAllAsUnpacked },
     ];
   return (
     <section className="button-group">

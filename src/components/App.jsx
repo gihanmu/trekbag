@@ -10,7 +10,7 @@ function App() {
   const [items, setItems] = useState(initialItems);
   const totalNumberOfItems = items.length;
   const totalNumberOfItemsPacked = items.filter(
-    (item) => item.completed
+    (item) => item.packed
   ).length;
 
   const handleAddItem = (itemText) => {
@@ -30,14 +30,14 @@ function App() {
     setItems(initialItems);
   };
 
-  const handleMarkAllAsComplete = () => {
+  const handleMarkAllAsPacked = () => {
     setItems((prevItems) =>
-      prevItems.map((item) => ({ ...item, completed: true }))
+      prevItems.map((item) => ({ ...item, packed: true }))
     );
   };
-  const handleMarkAllAsIncomplete = () => {
+  const handleMarkAllAsUnpacked = () => {
     setItems((prevItems) =>
-      prevItems.map((item) => ({ ...item, completed: false }))
+      prevItems.map((item) => ({ ...item, packed: false }))
     );
   };
 
@@ -47,7 +47,7 @@ function App() {
   const handleToggleItemCompletion = (id) => {
     setItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id ? { ...item, completed: !item.completed } : item
+        item.id === id ? { ...item, packed: !item.packed } : item
       )
     );
   };
@@ -70,8 +70,8 @@ function App() {
           handleAddItem={handleAddItem}
           handleRemoveAllItems={handleRemoveAllItems}
           handleResetToInitial={handleResetToInitial}
-          handleMarkAllAsComplete={handleMarkAllAsComplete}
-          handleMarkAllAsIncomplete={handleMarkAllAsIncomplete}
+          handleMarkAllAsPacked={handleMarkAllAsPacked}
+          handleMarkAllAsUnpacked={handleMarkAllAsUnpacked}
         />
       </main>
       <Footer />
