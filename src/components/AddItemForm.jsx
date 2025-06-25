@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
 import Button from "./Button";
+import { useItemStore } from "../store/itemStore";
 
-export default function AddItemForm({ onAddItem }) {
+export default function AddItemForm() {
   const [itemText, setItemText] = useState("");
   const inputRef = useRef(null);
+  const addItem = useItemStore((state) => state.addItem);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,8 +14,8 @@ export default function AddItemForm({ onAddItem }) {
       inputRef?.current.focus();
       return;
     }
-  
-    onAddItem(itemText);
+
+    addItem(itemText);
     setItemText("");
   };
   return (
